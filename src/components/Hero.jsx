@@ -16,6 +16,7 @@ const Hero = () => {
         const heroSplit = new SplitText('.title', { type: 'chars, words' });
         const paragraphSplit = new SplitText('.subtitle', { type: 'lines' });
 
+        // Apply text-gradient class once before animating
         heroSplit.chars.forEach((char) => char.classList.add('text-gradient'));
 
         gsap.from(heroSplit.chars, {
@@ -84,6 +85,8 @@ const Hero = () => {
                 />
 
                 <div className="body">
+                    <img src="/images/arrow.png" alt="arrow" className="arrow" />
+
                     <div className="content">
                         <div className="space-y-5 hidden md:block">
                             <p>Cool. Crisp. Classic</p>
@@ -97,21 +100,19 @@ const Hero = () => {
                                 Every cocktail on our menu is a blend of premium ingredients, creative
                                 flair, and timeless recipes - designed to delight your senses.
                             </p>
-                            <a href="#cocktails">View Cocktails</a>
+                            <a ref="#cocktails">View Cocktails</a>
                         </div>
                     </div>
                 </div>
-
             </section>
 
             <div className="video absolute inset-0">
                 <video
                     ref={videoRef}
-                    src="/videos/output.mp4"
                     muted
-                    loop
                     playsInline
                     preload="auto"
+                    src="/videos/output.mp4"
                 />
             </div>
         </>
